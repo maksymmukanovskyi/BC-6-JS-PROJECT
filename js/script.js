@@ -1,0 +1,2 @@
+//BC-6-JS-PROJECT 11:23 AM 2018-07-18
+'use strict';
