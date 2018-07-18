@@ -1,0 +1,15 @@
+:root {
+    --family: 'Roboto', sans-serif;
+    --big: 1.125rem;
+    --medium: 0.875rem;
+    --small: 0.75rem;
+    --mobBig: 1.125rem;
+    --mobMedium: 0.875rem;
+    --mobSmall: 0.75rem;
+    --white: #fff;
+    --grey: #7d7d7d;
+    --red: #d32f2f;
+    --serch: #262626;
+    --main: #1a1a1a;
+    --card: #2e2e2e;
+}
