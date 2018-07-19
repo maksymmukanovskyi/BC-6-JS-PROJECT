@@ -2,9 +2,6 @@
 let searchInput = document.querySelector('.search__input');
 let searchBtn = document.querySelector('.search__btn');
 let artistArr =[];
-// let artistNameArr=[];
-// let trackNameArr=[];
-// let youtubeSearchQuery;
 const trackData = {
     tracks: []
 };
@@ -26,7 +23,7 @@ function searchTrack(event){
                 artistArr[0].results.trackmatches.track.forEach(function(item){
                     let trackName = item.name;
                     let trackArtist = item.artist;
-                    let trackImage = item.image[2]['#text'];
+                    let trackImage = item.image[1]['#text'];
                     trackData.tracks.push(
                         {
                             trackName: trackName,
@@ -35,44 +32,20 @@ function searchTrack(event){
                         }
                     )
                 });
+                createTrack()
                 console.log(trackData);
             }
         });
 
 }
 
-funct
-// const trackData = {
-//     tracks: [
-//         {
-//         trackName: trackName,
-//         trackArtist: trackArtist,
-//         trackImage: trackImage,
-//     }
-//     ]
-// };
+function createTrack(){
+    const source = document.querySelector('#trackCard-template').innerHTML.trim();
+    const template = Handlebars.compile(source);
+    const markup = template(trackData);
+    const container = document.querySelector('.songs-list');
+container.innerHTML = markup;
+}
 
-//         let trackName = `<li class="songs-item">
-//     <figure class="songs-item__figure">
-//         <img class="songs-item__img" src="${trackImage}" alt="image">
-//         <figcaption class="songs-item__discription" >
-//             <div class="discription__left-part">
-//                 <p class="songs-item__music-name">${trackName}</p>
-//                 <p class="songs-item__singer">${trackArtist}</p>
-//             </div>
-//             <p class="songs-item__music-time">5:61</p>
-//         </figcaption>
-//     </figure>
-// </li>`
-// function getTrackName(){
-//     artistArr[0].results.trackmatches.track.map(function(item){
-//         trackNameArr.push(item.name)
-//     })
-// }
-// function getArtistName(){
-//     artistArr[0].results.trackmatches.track.map(function(item){
-//         artistNameArr.push(item.artist)
-//     })
-// }
 
 
