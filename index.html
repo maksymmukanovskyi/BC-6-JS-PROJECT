@@ -154,10 +154,11 @@
 <template id="artist-dynamically">
     {{#each artist}} <!-- topalbums.album-->
     <div class="artist-card">
-        <figure>
+        <figure class="">
             <img src={{image.[3].[#text]}} alt="artist" class="artist-card__img">
             <figcaption>
                 <p class="artist-card__name">{{name}}</p>
+                <button class="btn-see-more">See more ...</button>
 
                 <!--<p class="artist-card__number-albums"> </p>-->
 
