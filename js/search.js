@@ -41,7 +41,7 @@ function searchTrack(event){
 
 }
 
-
+funct
 // const trackData = {
 //     tracks: [
 //         {
@@ -51,11 +51,6 @@ function searchTrack(event){
 //     }
 //     ]
 // };
-
-
-
-
-
 
 //         let trackName = `<li class="songs-item">
 //     <figure class="songs-item__figure">
@@ -81,15 +76,3 @@ function searchTrack(event){
 // }
 
 
-// const container = document.querySelector('.container');
-//
-// const createPostCard = ({img,title,text,link})=>
-//     `<div class="post">
-//     <img class="post__image" src="${img}" alt="post image">
-//     <h2 class="post__title"${title}</h2>
-//     <p class="post__text">${text}</p>
-//     <a class="button" href="#">${link}</a>
-// </div>`;
-//
-// const createCards = arr => arr.reduce((acc, card) => acc + createPostCard(card),``);
-// container.insertAdjacentHTML('afterbegin',createCards(posts));
