@@ -218,39 +218,24 @@
                         <a class="songs-header__item-link"  href="#">Random</a>
                     </li>
                 </ul>
-                <ul class="content songs-list">
-                    <template id="trackCard-template">
-                        {{#each tracks}}
-
-                        <li class="songs-item">
-                            <figure class="songs-item__figure">
-                                <img class="songs-item__img" src="{{trackImage}}" alt="image">
-                                <figcaption class="songs-item__discription" >
-                                    <div class="discription__left-part">
-                                        <p class="songs-item__music-name">{{trackName}}</p>
-                                        <p class="songs-item__singer">{{trackArtist}}</p>
-                                    </div>
-                                    <p class="songs-item__music-time"></p>
-                                </figcaption>
-                            </figure>
-                        </li>
-
-                        {{/each}}
-
-                    </template>
+                <template id="trackCard-template">
+                    {{#each tracks}}
                     <li class="songs-item">
                         <figure class="songs-item__figure">
-                            <img class="songs-item__img" src="img/covers/min_cover.png" alt="image">
+                            <img class="songs-item__img" src="{{trackImage}}" alt="image">
                             <figcaption class="songs-item__discription" >
                                 <div class="discription__left-part">
-                                    <p class="songs-item__music-name">Radioactive</p>
-                                    <p class="songs-item__singer">Imagine Dragons</p>
+                                    <p class="songs-item__music-name">Track: {{trackName}}</p>
+                                    <p class="songs-item__singer">Artist: {{trackArtist}}</p>
+                                    <p>Listeners on last.fm : {{listeners}}</p>
                                 </div>
-                                <p class="songs-item__music-time">5:61</p>
+                                <p class="songs-item__music-time"></p>
                             </figcaption>
                         </figure>
                     </li>
-
+                    {{/each}}
+                </template>
+                <ul class="content songs-list">
                 </ul>
             </div>
             <div class="artist-head">

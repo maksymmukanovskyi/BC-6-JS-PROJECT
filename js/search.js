@@ -2,13 +2,16 @@
 let searchInput = document.querySelector('.search__input');
 let searchBtn = document.querySelector('.search__btn');
 let artistArr =[];
-const trackData = {
+let trackData = {
     tracks: []
 };
 
 searchBtn.addEventListener('click', searchTrack);
 
 function searchTrack(event){
+    trackData = {
+        tracks: []
+    };
     artistArr =[];
     event.preventDefault();
     let searchQuery = searchInput.value;
@@ -24,27 +27,28 @@ function searchTrack(event){
                     let trackName = item.name;
                     let trackArtist = item.artist;
                     let trackImage = item.image[1]['#text'];
+                    let listeners = item.listeners;
                     trackData.tracks.push(
                         {
                             trackName: trackName,
                             trackArtist: trackArtist,
                             trackImage: trackImage,
+                            listeners: listeners,
                         }
                     )
                 });
-                createTrack()
+                createTrackCard();
                 console.log(trackData);
+                searchInput.value ='';
             }
         });
-
 }
 
-function createTrack(){
+function createTrackCard(){
     const source = document.querySelector('#trackCard-template').innerHTML.trim();
-    const template = Handlebars.compile(source);
-    const markup = template(trackData);
     const container = document.querySelector('.songs-list');
-container.innerHTML = markup;
+    const template = Handlebars.compile(source);
+    container.innerHTML = template(trackData);
 }
 
 
