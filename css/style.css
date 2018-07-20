@@ -7,4 +7,6 @@
 @import "search.css";
 @import "content.css";
 @import "artist-card.css";
-
+@import "songs.css";
+@import "album.css";
+@import "group-header-style.css";

@@ -1,0 +1,75 @@
+.songs-header__list {
+    height: 65px;
+    width: 100%;
+    background-color: #1f1f1f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    margin-bottom: 40px;
+}
+.songs-header__item-link {
+    text-transform: uppercase;
+    color: #fff;
+}
+.songs-header__item-link:hover {
+    color: #d32f2f;
+}
+.songs-list {
+    padding: 0 30px;
+}
+.songs-item {
+    height: 70px;
+    width: 100%;
+}
+.songs-item__figure {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.songs-item__img {
+    margin-right: 7px;
+}
+.songs-item__discription {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #3d3d3d;;
+}
+.songs-item__music-name {
+    margin-top: -15px;
+    font-size: 16px;
+    color: #fff;
+}
+.songs-item__singer {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #7d7d7d;
+}
+.songs-item__music-time {
+    margin-top: -37px;
+    color: #7d7d7d;
+}
+@media (min-width: 480px) {
+    .songs-header__list {
+        padding: 0 50px;
+    }
+}
+@media (min-width: 768px) {
+    .songs-header__list {
+        padding: 0 80px;
+    }
+    .songs-list {
+        padding: 0 50px;
+    }
+}
+@media (min-width: 1020px) {
+    .songs-header__list {
+        padding: 0 100px;
+    }
+    .songs-list {
+        padding: 0 50px;
+    }
+}
