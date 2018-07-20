@@ -61,7 +61,29 @@
             <template id="youTube">
                 <iframe width="300" height="180" src="https://www.youtube.com/embed/{{videoId}}?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
                 </iframe>
-            </template>l
+            </template>
+
+
+            <ul class="content songs-list">
+            </ul>
+
+            <template id="trackCard-template">
+                {{#each tracks}}
+                <li class="songs-item">
+                    <figure class="songs-item__figure">
+                        <img class="songs-item__img" src="{{trackImage}}" alt="image">
+                        <figcaption class="songs-item__discription" >
+                            <div class="discription__left-part">
+                                <p class="songs-item__music-name">{{trackName}}</p>
+                                <p class="songs-item__singer">{{trackArtist}}</p>
+                                <p>Listeners on last.fm : {{listeners}}</p>
+                            </div>
+                            <p class="songs-item__music-time"></p>
+                        </figcaption>
+                    </figure>
+                </li>
+                {{/each}}
+            </template>
 
 
         </aside>
