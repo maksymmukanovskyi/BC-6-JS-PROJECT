@@ -1,6 +1,6 @@
 'use strict';
 
-const data = {
+const artistData = {
     "artist": {
         "name": "Cher",
         "mbid": "bfcc6d75-a6a5-4bc6-8282-47aec8531818",
@@ -230,9 +230,11 @@ const data = {
     }
 };
 
-Handlebars.registerHelper('artistGenres', (arrTags) => arrTags.reduce((acc, tag) => acc + (acc = '') ? tag.name : ' / ' + tag.name));
+// Handlebars helpers and partials
+Handlebars.registerHelper('artistGenres', (arrTags) => arrTags.map(tag => tag.name.charAt(0).toUpperCase().concat(tag.name.slice(1))).join(' / '));
 
 function showArtistInfo(artistDataObj) {
+    console.log(artistDataObj);
     // read data
     const source = document.querySelector('#artist-page-template').innerHTML.trim();
     const template = Handlebars.compile(source);
@@ -241,6 +243,12 @@ function showArtistInfo(artistDataObj) {
     const contentContainer = document.querySelector('.content');
     // contentContainer.style.justifyContent = 'space-between';
     contentContainer.innerHTML = result;
+
+    // display artist picture
+    const artistContainer = document.querySelector('.artist__page_container');
+    artistContainer.style.backgroundImage = 'url(\'' + artistDataObj.artist.image[5]['#text'] + '\')';
+    artistContainer.style.backgroundRepeat = 'no-repeat';
+    artistContainer.style.backgroundSize = 'contain'
 }
 
-showArtistInfo(data);
+showArtistInfo(artistData);
