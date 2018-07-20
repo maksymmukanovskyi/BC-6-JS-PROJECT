@@ -58,18 +58,19 @@
         </aside>
         <main class="main">
             <div class="search">
-                <form action="#" method="post" class="search__form">
-                    <input type="text" class="search__input" placeholder="Search music">
-                    <input type="submit" value="search" class="search__btn">
-                </form>
-                <div class="chart">
-                    <ul class="chart-list">
-                        <li class="chart-list__item" id="artist">Artists</li>
-                        <li class="chart-list__item" id="albums">Albums</li>
-                        <li class="chart-list__item" id="songs">Songs</li>
-                    </ul>
-                </div>
+            <form action="#" method="post" class="search__form">
+                <input type="text" class="search__input" placeholder="Search music">
+                <input type="submit" value="search" class="search__btn">
+            </form>
+            <div class="chart">
+                <ul class="chart-list">
+                    <li class="chart-list__item" id="artist">Artists</li>
+                    <li class="chart-list__item" id="albums">Albums</li>
+                    <li class="chart-list__item" id="songs">Songs</li>
+                </ul>
             </div>
+    </div>
+<!--
             <div class="content">
             <div class="artist-card">
                 <figure>
@@ -152,7 +153,7 @@
                     </figcaption>
                 </figure>
             </div>
-    </div>
+    </div>  &lt;!&ndash;artists&ndash;&gt;
             <div class="content content__album">
                 <div class="artist-card">
                     <figure>
@@ -207,7 +208,7 @@
                         </figcaption>
                     </figure>
                     </div>
-            </div>
+            </div> &lt;!&ndash;albums&ndash;&gt;
             <div class="content__songs">
                 <ul class="songs-header__list">
                     <li class="songs-header__item">
@@ -316,7 +317,7 @@
                         </figure>
                     </li>
                 </ul>
-            </div>
+            </div> &lt;!&ndash;tracks&ndash;&gt;
             <div class="artist-head">
                 <div class="info-group">
                     <h2 class="group-name">Muse</h2>
@@ -380,12 +381,105 @@
                     </figure>
                 </div>
             </div>
+            -->
 
         </main>
     </div>
+
+    <!--All templates-->
+    <div class="templates">
+        <!--Artists template-->
+        <template id="artist-dynamically">
+            {{#each artist}} <!-- topalbums.album-->
+            <div class="artist-card">
+                <figure class="">
+                    <img src={{image.[3].[#text]}} alt="artist" class="artist-card__img">
+                    <figcaption>
+                        <p class="artist-card__name">{{name}}</p>
+                        <button class="btn-see-more">See more ...</button>
+                    </figcaption>
+                </figure>
+            </div>
+            {{/each}}
+        </template>
+
+        <!--Artist template-->
+        <template id="artist-page-template">
+            <div class="info-group">
+                <h2 class="group-name">{{name}}</h2>
+                <p class="genre">{{tags.tag}}</p>
+            </div>
+            <button class="btn-play"><img class="play-img" src="img/albums/play.png" alt="play"></button>
+            {{#each artist.albums}}
+            <div class="artist-card">
+                <figure>
+                    <img src="img/albums/Drones.png" alt="album" class="artist-card__img">
+                    <figcaption class="album">
+                        <p class="artist-card__name">album name</p>
+                        <p class="artist-card__number-albums">album year</p>
+                    </figcaption>
+                </figure>
+            </div>
+            {{/each}}
+        </template>
+
+        <!--Albums template-->
+        <template id="#albums-list-template">
+            <div class="artist-card">
+                <figure>
+                    <img src="img/albums/BandH.png" alt="albums-picture" class="artist-card__img">
+                    <figcaption>
+                        <p class="artist-card__name">Black Holes And Revelations</p>
+                        <p class="artist-card__number-albums">2006</p></figcaption>
+                </figure>
+            </div>
+        </template>
+
+        <!--Album template-->
+        <template id="album-template">
+            <div class="album__album-cover">
+                <img src="{{album.image.[2].[#text]}}" alt="album cover" class="album__album-cover-img">
+            </div>
+            <div class="album__data">
+                <p class="album__album-name">{{this.album.name}}</p>
+                <p class="album__album-year">{{albumYear this.album.wiki.published}}</p>
+                <ol class="album__track-list">
+                    {{#each album.tracks.track}}
+                    <li class="album__track">
+                        <p class="album__track-content">
+                            <span class="album__track-name">{{this.name}}</span>
+                            <span class="album__track-duration">{{trackDuration this.duration}}</span>
+                        </p>
+                    </li>
+                    {{/each}}
+                </ol>
+            </div>
+        </template>
+
+        <!--Tracks template-->
+        <template id="trackCard-template">
+            {{#each tracks}}
+            <li class="songs-item">
+                <figure class="songs-item__figure">
+                    <img class="songs-item__img" src="{{trackImage}}" alt="image">
+                    <figcaption class="songs-item__discription" >
+                        <div class="discription__left-part">
+                            <p class="songs-item__music-name">{{trackName}}</p>
+                            <p class="songs-item__singer">{{trackArtist}}</p>
+                            <p>Listeners on last.fm : {{listeners}}</p>
+                        </div>
+                        <p class="songs-item__music-time"></p>
+                    </figcaption>
+                </figure>
+            </li>
+            {{/each}}
+        </template>
+    </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 <script src="js/script.js"></script>
 <script src="js/click-topmenu.js"></script>
+<script src="js/album.js"></script>
 </body>
 </html>

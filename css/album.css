@@ -1,7 +1,49 @@
-.hide {
-    display: none;
-    transition: 0.5s;
+.album__album-cover {
+    flex-basis: content;
 }
-.show {
-    display: block;
+
+.album__data {
+    flex-basis: 70%;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.album__album-name {
+    display: inline-block;
+    width: 80%;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+}
+
+.album__album-year {
+    font-size: .775rem;
+    line-height: 1.25rem;
+    color: #999;
+}
+
+.album__track-content
+{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: .875rem;
+    line-height: 3rem;
+}
+
+.album__track-content:hover {
+    color:
+}
+
+.album__track-list {
+    color: #fff;
+
+}
+
+.album__track-name {
+    min-width: 12rem;
+    width: 100%;
+}
+
+.album__track-duration {
+    text-align: right;
 }
